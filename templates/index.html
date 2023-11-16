@@ -1,0 +1,71 @@
+<!-- Create a form that accepts parameters from user and predicts if water is of good quality or not -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Water Quality</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Water Quality Prediction</h1>
+        <p>Enter the parameters to predict if water is of good quality or not</p>
+        <form action="{{url_for('predict')}}" method="post">
+
+            <div>
+                <label for="ph">pH</label>
+                <input type="text" name="ph" id="ph">
+            </div>
+            <div>
+                <label for="hardness">Hardness</label>
+                <input type="text" name="hardness" id="hardness">
+            </div>
+            <div>
+                <label for="solids">Solids</label>
+                <input type="text" name="solids" id="solids">
+            </div>
+            <div>
+                <label for="chloramines">Chloramines</label>
+                <input type="text" name="chloramines" id="chloramines">
+            </div>
+            <div>
+                <label for="sulfate">Sulfate</label>
+                <input type="text" name="sulfate" id="sulfate">
+            </div>
+            <div>
+                <label for="conductivity">Conductivity</label>
+                <input type="text" name="conductivity" id="conductivity">
+            </div>
+            <div>
+                <label for="organic_carbon">Organic Carbon</label>
+                <input type="text" name="organic_carbon" id="organic_carbon">
+            </div>
+            <div>
+                <label for="trihalomethanes">Trihalomethanes</label>
+                <input type="text" name="trihalomethanes" id="trihalomethanes">
+            </div>
+            <div>
+                <label for="turbidity">Turbidity</label>
+                <input type="text" name="turbidity" id="turbidity">
+                
+            </div>
+
+
+
+            <input type="submit" id="submitt" value="Submit">
+        </form>
+
+    </div>
+    <div class="container">
+        <h2>Prediction</h2>
+        {% if prediction == 1 %}
+        <p>Water is of good quality</p>
+    {% else %}
+        <p>Water is not of good quality</p>
+    {% endif %}
+
+    </div>
+
+</body>
+</html>
